@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KONTAKT | KINETIX STUDIO</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+    <div class="transition-layer"></div>
+
+    <div class="blob-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav>
+        <div class="logo">KINETIX<span>STUDIO</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">DOMŮ</a>
+            <a href="portfolio.html" class="nav-item">PORTFOLIO</a>
+            <a href="sluzby.html" class="nav-item">SLUŽBY</a>
+            <a href="kontakt.html" class="nav-item" style="color: var(--orange);">KONTAKT</a>
+        </div>
+    </nav>
+
+    <main id="content">
+        <section class="hero hero-left" style="height: auto; padding-top: 150px; padding-bottom: 50px;">
+            <div class="hero-inner">
+                <span class="badge fade">Spojme se</span>
+                <h1 class="reveal">KONTAKT</h1>
+                <p class="fade" style="max-width: 700px;">Máte zájem o spolupráci nebo chcete posunout vizuální styl svého klubu? Kontaktujte KINETIX STUDIO a společně vytvoříme profesionální grafiku pro váš tým nebo sportovní projekt.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="footer-container" style="align-items: start;">
+                
+                <div class="footer-main-text reveal">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">KONTAKTNÍ FORMULÁŘ</h2>
+                    <form action="https://formspree.io/f/xojklyob" method="POST" class="kinetix-form-zio">
+                        <input type="text" name="name" placeholder="Jméno" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="text" name="club" placeholder="Název klubu / organizace">
+                        <textarea name="message" placeholder="Zpráva" required></textarea>
+                        <p style="font-size: 0.8rem; opacity: 0.6; margin-top: -10px;">Odpovídáme obvykle do 24 hodin.</p>
+                        <button type="submit" class="btn-zio" style="margin-top: 20px;">ODESLAT ZPRÁVU →</button>
+                    </form>
+                </div>
+
+                <div class="footer-sidebar reveal">
+                    <div class="side-group">
+                        <strong>EMAIL</strong>
+                        <a href="mailto:kinetixstudio@gmail.com">kinetixstudio@gmail.com</a>
+                    </div>
+                    <div class="side-group">
+                        <strong>INSTAGRAM</strong>
+                        <a href="https://instagram.com/kinetixstudio" target="_blank">@kinetixstudio</a>
+                    </div>
+                    <div class="side-group">
+                        <strong>TIKTOK</strong>
+                        <a href="https://tiktok.com/@kinetixstudio" target="_blank">@kinetixstudio</a>
+                    </div>
+
+                    <div class="glass-panel" style="text-align: left; padding: 30px; margin-top: 40px; border-radius: 30px;">
+                        <strong style="color: var(--orange); font-size: 0.7rem; letter-spacing: 2px;">SPOLUPRÁCE</strong>
+                        <p style="font-size: 0.9rem; margin: 15px 0;">Hledáme spolupráci se:</p>
+                        <ul style="list-style: none; font-size: 0.9rem; opacity: 0.8;">
+                            <li>• sportovními kluby</li>
+                            <li>• sportovci</li>
+                            <li>• sportovními organizacemi</li>
+                            <li>• marketingovými agenturami</li>
+                        </ul>
+                        <p style="margin-top: 20px; font-weight: bold; color: var(--orange); font-size: 0.9rem;">Připravíme ukázkový koncept grafiky pro váš klub.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 KINETIX STUDIO. Všechna práva vyhrazena.</p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

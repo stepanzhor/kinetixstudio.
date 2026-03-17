@@ -1,0 +1,95 @@
+/* --- STYLY PRO SLUZBY.HTML --- */
+
+/* Hero úprava pro služby */
+.services-hero {
+    padding: 150px 8% 50px 8%;
+}
+
+/* Kontejner pro nabídku služeb */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+/* Karta služby - odlišná od Home karet */
+.service-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 50px 40px;
+    border-radius: 40px;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.service-item:hover {
+    background: rgba(255, 95, 31, 0.03);
+    border-color: rgba(255, 95, 31, 0.3);
+    transform: translateY(-10px);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--orange);
+    margin-bottom: 25px;
+}
+
+.service-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+/* Seznam v rámci služby */
+.service-list {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.service-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    opacity: 0.7;
+    font-size: 0.95rem;
+}
+
+.service-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+}
+
+/* Cenový indikátor / Badge */
+.price-tag {
+    margin-top: auto;
+    padding-top: 30px;
+    font-weight: bold;
+    color: var(--orange);
+    font-family: 'Archivo Black', sans-serif;
+    letter-spacing: 1px;
+}
+
+/* Sekce "Individuální balíčky" (Glass panel) */
+.custom-deal {
+    margin-top: 80px;
+    background: linear-gradient(135deg, rgba(255, 95, 31, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+    padding: 60px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 95, 31, 0.2);
+    text-align: center;
+}
+
+.custom-deal h2 {
+    margin-bottom: 20px;
+}
+
+/* Responzivita */
+@media (max-width: 768px) {
+    .service-item {
+        padding: 30px;
+    }
+}

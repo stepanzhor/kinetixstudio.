@@ -1,0 +1,510 @@
+:root {
+    /* Identita značky */
+    --orange: #FF5F1F; /* Primary Kinetic Orange */
+    --black: #050505;  /* Trochu tmavší základ pro lepší vyniknutí gradientu */
+    --white: #FFFFFF;  /* Pure White */
+    --card-glass: rgba(255, 255, 255, 0.03);
+}
+
+/* Základní nastavení */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--black);
+    background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%);
+    background-attachment: fixed;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Jemná textura (Grain) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.03;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Typografie */
+h1, h2, h3, .logo {
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+/* Oranžová clona */
+.transition-layer {
+    position: fixed;
+    top: 0;
+    left: -150%; 
+    width: 150%; 
+    height: 100%;
+    background: #FF5F1F; 
+    z-index: 9999;
+    pointer-events: none;
+    transform: skewX(-10deg);
+    display: block !important; 
+}
+
+/* Navigace */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.logo span {
+    color: var(--orange);
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--orange);
+}
+
+/* --- HERO SEKCE (ZAROVNÁNO VLEVO DLE TVÉHO PŘÁNÍ) --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Tlačí obsah doleva */
+    text-align: left;        /* Zarovnává text doleva */
+    padding: 0 8%;
+}
+
+.hero-inner {
+    max-width: 900px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 10vw, 6.5rem);
+    line-height: 0.85;
+    margin-bottom: 1.5rem;
+    margin-left: -5px;
+}
+
+.badge {
+    color: var(--orange);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* --- SYSTÉM KARET (AKORDEON A PROCESY) --- */
+.section {
+    padding: 80px 8%;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    align-items: start; 
+}
+
+.card {
+    background: var(--card-glass);
+    padding: 50px 40px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    max-height: 380px; 
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.card.active {
+    max-height: 1000px; 
+    border-color: var(--orange);
+    background: rgba(255, 95, 31, 0.05);
+    overflow: visible; 
+    padding-bottom: 60px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 95, 31, 0.4);
+}
+
+.card-num {
+    color: var(--orange);
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.card-details {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+.card.active .card-details {
+    opacity: 1;
+    max-height: 700px;
+    margin-top: 25px;
+    overflow: visible;
+}
+
+/* Styl seznamu s šipkami */
+.card-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.card-details ul li {
+    position: relative;
+    padding-left: 25px; 
+    margin-bottom: 12px;
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.card-details ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.card-details ul li:hover::before {
+    transform: translateX(5px);
+}
+
+/* --- TLAČÍTKA --- */
+.btn-primary {
+    background-color: var(--orange);
+    color: var(--white);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 12px;
+    display: inline-block;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: scale(1.08);
+    filter: brightness(1.2);
+    box-shadow: 0 10px 20px rgba(255, 95, 31, 0.3);
+}
+
+/* --- ZIO STYLE FOOTER --- */
+.footer-zio {
+    padding: 120px 8% 60px 8%;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr;
+    gap: 80px;
+}
+
+.huge-title {
+    font-size: clamp(3rem, 9vw, 6.5rem);
+    line-height: 0.9;
+    margin: 20px 0 50px 0;
+    text-align: left;
+}
+
+.huge-title span {
+    color: var(--orange);
+}
+
+.kinetix-form-zio {
+    display: flex;
+    flex-direction: column;
+    max-width: 550px;
+    gap: 25px;
+}
+
+.kinetix-form-zio input, 
+.kinetix-form-zio textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 15px 0;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-zio {
+    background: transparent;
+    color: var(--orange);
+    border: none;
+    font-family: 'Archivo Black';
+    font-size: 1.3rem;
+    text-align: left;
+    padding: 20px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.footer-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.side-group strong {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--orange);
+    margin-bottom: 15px;
+}
+
+.side-group a, .side-group p {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: block;
+    opacity: 0.7;
+    transition: all 0.3s;
+}
+
+/* --- PORTFOLIO --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.portfolio-item {
+    position: relative;
+    border-radius: 40px;
+    height: 400px;
+    overflow: hidden;
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.portfolio-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.portfolio-item:hover .portfolio-img {
+    transform: scale(1.1);
+}
+
+.item-overlay {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+
+/* --- PRO KOHO PRACUJEME (GLASS PANEL) --- */
+.glass-panel {
+    background: rgba(255, 95, 31, 0.05);
+    padding: 60px;
+    border-radius: 50px;
+    text-align: center;
+    border: 1px dashed var(--orange);
+}
+
+.eco-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.eco-item { max-width: 250px; }
+.eco-item h3 { color: var(--orange); margin-bottom: 10px; }
+
+/* --- GRADIENT KRUHY NA POZADÍ --- */
+.blob-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.12;
+    background: var(--orange);
+}
+
+.blob-1 { width: 600px; height: 600px; top: -10%; left: -10%; }
+.blob-2 { width: 700px; height: 700px; bottom: -15%; right: -5%; }
+.blob-3 { width: 300px; height: 300px; top: 30%; left: 50%; background: #fff; opacity: 0.04; }
+
+/* --- PATIČKA --- */
+.footer-bottom {
+    text-align: center;
+    padding: 40px 0;
+    opacity: 0.4;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Responsivita */
+@media (max-width: 968px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    .huge-title { font-size: 3.5rem; }
+    .hero { align-items: center; text-align: center; }
+}
+
+/* --- SPECIFICKÉ ÚPRAVY PRO STRÁNKU KONTAKT --- */
+
+/* Hero úprava pro podstránky */
+.hero-inner p {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    opacity: 0.8;
+    line-height: 1.8;
+}
+
+/* Úprava formuláře pro více polí */
+.kinetix-form-zio {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Větší rozestupy mezi řádky */
+    margin-top: 40px;
+    max-width: 600px;
+}
+
+.kinetix-form-zio input, 
+.kinetix-form-zio textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 5px;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.kinetix-form-zio input:focus, 
+.kinetix-form-zio textarea:focus {
+    border-bottom: 1px solid var(--orange);
+}
+
+/* Seznam v sekci Spolupráce */
+.footer-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-sidebar ul li {
+    margin-bottom: 10px;
+    color: var(--white);
+    opacity: 0.8;
+    font-size: 0.95rem;
+}
+
+/* Skleněný panel pro Spolupráci */
+.glass-panel {
+    background: rgba(255, 95, 31, 0.03);
+    border: 1px solid rgba(255, 95, 31, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 40px;
+    margin-top: 50px;
+}
+
+/* Tlačítko v kontaktu */
+.btn-zio {
+    background: transparent;
+    color: var(--orange);
+    border: none;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.4rem;
+    text-align: left;
+    cursor: pointer;
+    padding: 20px 0;
+    transition: transform 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.btn-zio:hover {
+    transform: translateX(10px);
+    letter-spacing: 1px;
+}
+
+/* Responzivita pro kontakt */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Na mobilu pod sebou */
+        gap: 50px;
+    }
+    
+    .hero {
+        padding-top: 100px;
+    }
+}
+
+
+
+
+
