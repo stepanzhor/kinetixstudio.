@@ -15,8 +15,6 @@
 
     <div id="custom-cursor"></div>
 
-    <div class="transition-layer"></div>
-
     <div class="blob-container">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
@@ -24,8 +22,17 @@
     </div>
 
     <nav>
-        <div class="logo">KINETIX<span>STUDIO</span></div>
-        <div class="nav-links">
+        <a href="index.html" style="text-decoration: none;">
+            <div class="logo">KINETIX<span>STUDIO</span></div>
+        </a>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <div class="nav-links" id="nav-list">
             <a href="index.html" class="nav-item">DOMŮ</a>
             <a href="portfolio.html" class="nav-item">PORTFOLIO</a>
             <a href="sluzby.html" class="nav-item">SLUŽBY</a>
@@ -80,7 +87,7 @@
                     <div class="glass-panel" style="text-align: left; padding: 25px; margin-top: 40px; border-radius: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,95,31,0.2);">
                         <strong style="color: var(--orange); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;">Vizualizace zdarma</strong>
                         <p style="font-size: 0.85rem; margin: 15px 0; line-height: 1.6; opacity: 0.9;">
-                            Zašlete nám své logo a my pro váš tým připravíme **Concept Gameday set** zcela zdarma. Uvidíte změnu dřív, než se rozhodnete.
+                            Zašlete nám své logo a mi pro váš tým připravíme **Concept Gameday set** zcela zdarma. Uvidíte změnu dřív, než se rozhodnete.
                         </p>
                         <ul style="list-style: none; font-size: 0.8rem; opacity: 0.7; padding: 0;">
                             <li>• Návrh hlavní zápasové grafiky</li>
@@ -98,6 +105,17 @@
         </div>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+        // Logika pro Hamburger Menu (nutné přidat na každou stránku)
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', () => {
+                mobileMenu.classList.toggle('is-active');
+                navList.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 </html>

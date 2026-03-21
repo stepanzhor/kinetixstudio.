@@ -16,16 +16,23 @@
 
     <div id="custom-cursor"></div>
 
-    <div class="transition-layer"></div>
-
     <div class="blob-container">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
     </div>
 
     <nav>
-        <div class="logo">KINETIX<span>STUDIO</span></div>
-        <div class="nav-links">
+        <a href="index.html" style="text-decoration: none;">
+            <div class="logo">KINETIX<span>STUDIO</span></div>
+        </a>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <div class="nav-links" id="nav-list">
             <a href="index.html" class="nav-item">DOMŮ</a>
             <a href="portfolio.html" class="nav-item">PORTFOLIO</a>
             <a href="sluzby.html" class="nav-item" style="color: var(--orange);">SLUŽBY</a>
@@ -167,6 +174,17 @@
         </footer>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+        // Logika pro Hamburger Menu
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', () => {
+                mobileMenu.classList.toggle('is-active');
+                navList.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 </html>
