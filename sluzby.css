@@ -93,3 +93,80 @@
         padding: 30px;
     }
 }
+
+
+/* --- RESPONZIVITA PRO VŠECHNA ZAŘÍZENÍ --- */
+
+/* 1. Oprava navigace pro mobily */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        margin-top: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* 2. Oprava hlavních nadpisů, aby nepřetékaly */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.8rem !important; /* Zmenší obří texty na mobilu */
+        line-height: 1.1;
+    }
+    
+    .huge-title {
+        font-size: 2rem !important;
+    }
+}
+
+/* 3. OPRAVA GRIDŮ (Mřížek) */
+/* Toto zajistí, že se tvoje karty v Portfoliu i Službách dají pod sebe */
+@media (max-width: 1024px) {
+    /* Na tabletech 2 sloupce */
+    .grid, .portfolio-grid, .services-grid, .eco-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 650px) {
+    /* Na mobilech 1 sloupec */
+    .grid, .portfolio-grid, .services-grid, .eco-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .hero-btns {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .hero-btns a {
+        margin-left: 0 !important;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* 4. Oprava patičky a formuláře */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column !important;
+        gap: 40px;
+    }
+    
+    .kinetix-form-zio {
+        width: 100% !important;
+    }
+}
+
+/* 5. Zajištění, že se obrázky v portfoliu neroztáhnou divně */
+.portfolio-card img, .card img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}

@@ -117,3 +117,38 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// --- KINETIX STUDIO INTERACTIVE SCRIPT ---
+
+const cursor = document.getElementById('custom-cursor');
+
+if (cursor) {
+    // Sledování pohybu myši
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    // Efekt na interaktivní prvky (odkazy, tlačítka, karty)
+    const hoverElements = document.querySelectorAll('a, button, .card, .portfolio-item');
+    
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.style.transform = 'scale(3)'; // Kurzor se zvětší
+            cursor.style.background = 'rgba(255, 95, 31, 0.4)'; // A zprůhlední
+        });
+        
+        el.addEventListener('mouseleave', () => {
+            cursor.style.transform = 'scale(1)';
+            cursor.style.background = '#FF5F1F';
+        });
+    });
+}
+
+const menu = document.querySelector('#mobile-menu');
+const menuLinks = document.querySelector('#nav-list');
+
+menu.addEventListener('click', function() {
+    menu.classList.toggle('is-active'); // Volitelné pro animaci čárek
+    menuLinks.classList.toggle('active'); // Tady se menu ukáže/schová
+});
