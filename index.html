@@ -4,173 +4,193 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KINETIX STUDIO | Vizuální palivo pro šampiony</title>
-    
-    <meta name="description" content="KINETIX STUDIO definuje identitu moderních sportovních klubů. Špičková matchday grafika, branding a obsah pro sociální sítě.">
-    
     <link rel="stylesheet" href="style.css">
-    
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
-    
+
     <div class="blob-container">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
+    </div>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
     </div>
 
     <nav>
-        <a href="index.html" style="text-decoration: none;">
-            <div class="logo">KINETIX<span>STUDIO</span></div>
-        </a>
-        
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
+        <div class="nav-container">
+            <a href="index.html" class="logo">KINETIX<span>STUDIO</span></a>
 
-        <div class="nav-links" id="nav-list">
-            <a href="index.html" class="nav-item">DOMŮ</a>
-            <a href="portfolio.html" class="nav-item">PORTFOLIO</a>
-            <a href="sluzby.html" class="nav-item">SLUŽBY</a>
-            <a href="kontakt.html" class="nav-item">KONTAKT</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <div class="nav-main-links" id="nav-list">
+                <a href="portfolio.html">PORTFOLIO</a>
+                <a href="sluzby.html">SLUŽBY</a>
+                <a href="kontakt.html">KONTAKT</a>
+            </div>
+
+            <div class="nav-right">
+                <a href="https://calendly.com/stepanzhor/30min" target="_blank" class="btn-cta">DOMLUVIT SCHŮZKU</a>
+            </div>
         </div>
     </nav>
 
-    <main id="content">
-        <section class="hero hero-left">
+    <main>
+        <section class="hero">
             <div class="hero-inner">
-                <span class="badge fade">Vizuální palivo pro šampiony</span>
-                <h1 class="reveal">KINETIX<br>STUDIO</h1>
-                <p class="fade">
-                    Měníme fanoušky v oddané následovníky skrze špičkový digitální obsah. Definujeme vizuální identitu moderních týmů a sportovců.
-                </p>
-                <div class="hero-btns fade">
-                    <a href="sluzby.html" class="btn-primary">GAME PLAN</a>
-                    <a href="portfolio.html" class="btn-primary btn-outline">PORTFOLIO</a>
+                <span class="badge">Vizuální palivo pro šampiony</span>
+                <h1>KINETIX<br>STUDIO</h1>
+                <p>Měníme fanoušky v oddané následovníky skrze špičkový digitální obsah.</p>
+                <a href="sluzby.html" class="btn-primary btn-cta-hero">OBJEVTE NAŠE SLUŽBY</a>
+            </div>
+        </section>
+
+        <section class="marquee-section">
+            <div class="container-title">
+                <h2 class="section-title">NAŠE PROJEKTY</h2>
+            </div>
+            
+            <div class="marquee">
+                <div class="marquee-content">
+                    <div class="marquee-item"><img src="img/Cody Gakpo.png" alt="Cody Gakpo"></div>
+                    <div class="marquee-item"><img src="img/Germany vs Spain 2.png" alt="Germany vs Spain"></div>
+                    <div class="marquee-item"><img src="img/Marián Tvrdoň grafika.png" alt="Marián Tvrdoň"></div>
+                    <div class="marquee-item"><img src="img/Tomáš Ladra vs Serrvete.png" alt="Tomáš Ladra"></div>
+                    <div class="marquee-item"><img src="img/work1.jpg" alt="Work 1"></div>
+                    <div class="marquee-item"><img src="img/work2.jpg" alt="Work 2"></div>
+                    <div class="marquee-item"><img src="img/work3.jpg" alt="Work 3"></div>
+                    <div class="marquee-item"><img src="img/work4.jpg" alt="Work 4"></div>
                 </div>
             </div>
         </section>
 
         <section id="sluzby" class="section">
             <h2 class="section-title">NAŠE SLUŽBY</h2>
-            <div class="grid">
-                <div class="card" onclick="toggleCard(this)">
-                    <div class="card-glow"></div>
-                    <span class="card-num">01</span>
-                    <h3>IDENTITY DESIGN</h3>
-                    <p>Tvoříme vizuální DNA, kterou budou fanoušci hrdě nosit na dresech.</p>
-                    <div class="card-details">
-                        <div class="line-divider"></div>
-                        <ul>
-                            <li>Logo a monogramy</li>
-                            <li>Grafické šablony</li>
-                            <li>Kompletní Brand manuál</li>
-                        </ul>
-                        <a href="sluzby.html" class="btn-primary">VÍCE O IDENTITĚ</a>
+            <div class="services-grid">
+                <div class="zio-card">
+                    <div class="zio-image">
+                        <img src="img/service1.jpg" alt="Identity Design">
                     </div>
-                    <div class="expand-icon">+</div>
+                    <div class="zio-content">
+                        <h3>IDENTITY DESIGN</h3>
+                        <p>Tvoříme vizuální DNA, kterou budou fanoušci hrdě nosit na dresech a sdílet na sítích.</p>
+                        <a href="kontakt.html" class="btn-zio-card">CHCI IDENTITU →</a>
+                    </div>
                 </div>
 
-                <div class="card" onclick="toggleCard(this)">
-                    <div class="card-glow"></div>
-                    <span class="card-num">02</span>
-                    <h3>GAMEDAY EXPERIENCE</h3>
-                    <p>Emoce ze hřiště přeneseme přímo na displeje telefonů vašich fanoušků.</p>
-                    <div class="card-details">
-                        <div class="line-divider"></div>
-                        <ul>
-                            <li>Matchday & Lineup</li>
-                            <li>Výsledkové sety</li>
-                            <li>Live statistiky</li>
-                        </ul>
-                        <a href="sluzby.html" class="btn-primary">VÍCE O GRAFICE</a>
+                <div class="zio-card">
+                    <div class="zio-image">
+                        <img src="img/service2.jpg" alt="Gameday Graphics">
                     </div>
-                    <div class="expand-icon">+</div>
+                    <div class="zio-content">
+                        <h3>GAMEDAY GRAPHICS</h3>
+                        <p>Emoce ze hřiště přeneseme přímo na displeje telefonů v reálném čase.</p>
+                        <a href="kontakt.html" class="btn-zio-card">CHCI GRAFIKU →</a>
+                    </div>
                 </div>
 
-                <div class="card" onclick="toggleCard(this)">
-                    <div class="card-glow"></div>
-                    <span class="card-num">03</span>
-                    <h3>KINETIC MOTION</h3>
-                    <p>Statika nestačí. Rozpohybujeme váš obsah dynamickými animacemi.</p>
-                    <div class="card-details">
-                        <div class="line-divider"></div>
-                        <ul>
-                            <li>Reels a TikTok edit</li>
-                            <li>Animovaná loga</li>
-                            <li>Match teasery</li>
-                        </ul>
-                        <a href="sluzby.html" class="btn-primary">VÍCE O MOTION</a>
+                <div class="zio-card">
+                    <div class="zio-image">
+                        <img src="img/service3.jpg" alt="Kinetic Motion">
                     </div>
-                    <div class="expand-icon">+</div>
+                    <div class="zio-content">
+                        <h3>KINETIC MOTION</h3>
+                        <p>Statika nestačí. Rozpohybujeme váš obsah dynamickými animacemi a Reels.</p>
+                        <a href="kontakt.html" class="btn-zio-card">CHCI VIDEO →</a>
+                    </div>
                 </div>
             </div>
         </section>
-
-        <section class="section about-section">
-            <div class="glass-panel reveal">
-                <h2 class="section-title">PRO KOHO PRACUJEME</h2>
-                <div class="eco-grid">
-                    <div class="eco-item"><h3>KLUBY</h3></div>
-                    <div class="eco-item"><h3>AKADEMIE</h3></div>
-                    <div class="eco-item"><h3>SPORTOVCI</h3></div>
-                    <div class="eco-item"><h3>AGENTURY</h3></div>
-                </div>
-            </div>
-        </section>
-
-        <footer class="footer">
-            <section id="kontakt" class="section footer-zio">
-                <div class="footer-container">
-                    <div class="footer-main-text reveal">
-                        <span class="badge">KONTAKT</span>
-                        <h2 class="huge-title">VÁŠ DALŠÍ ZÁPAS <br><span>ZAČÍNÁ U NÁS</span></h2>
-                        <form action="https://formspree.io/f/xojklyob" method="POST" class="kinetix-form-zio">
-                            <input type="email" name="email" placeholder="Tvůj Email" required>
-                            <textarea name="message" placeholder="Řekni nám o tvém klubu nebo vizi..." required></textarea>
-                            <button type="submit" class="btn-zio">ODESLAT POPTÁVKU →</button>
-                        </form>
-                    </div>
-
-                    <div class="footer-sidebar reveal">
-                        <div class="side-group">
-                            <strong>PŘÍMÁ LINKA</strong>
-                            <a href="mailto:info@kinetixstudio.cz">info@kinetixstudio.cz</a>
-                        </div>
-                        <div class="side-group">
-                            <strong>HYPE NA SÍTÍCH</strong>
-                            <a href="https://www.instagram.com/kinetix.studio/" target="_blank">Instagram</a>
-                            <a href="https://www.tiktok.com/@kinetix.studio" target="_blank">TikTok</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div class="footer-bottom">
-                <p>&copy; 2026 KINETIX STUDIO. Všechna práva vyhrazena.</p>
-            </div>
-        </footer>
     </main>
 
+    <footer class="footer-zio">
+        <div class="footer-container">
+            <div class="footer-main-text">
+                <span class="badge">KONTAKT</span>
+                <h2 class="huge-title">VÁŠ DALŠÍ ZÁPAS <br><span>ZAČÍNÁ U NÁS</span></h2>
+                
+                <form action="https://formspree.io/f/xojklyob" method="POST" class="kinetix-form-zio">
+                    <input type="email" name="email" placeholder="Tvůj Email" required>
+                    <textarea name="message" placeholder="O čem budeme mluvit?" required></textarea>
+                    <button type="submit" class="btn-zio">ODESLAT POPTÁVKU →</button>
+                </form>
+            </div>
+
+            <div class="footer-sidebar">
+                <div class="side-group">
+                    <strong>PŘÍMÁ LINKA</strong>
+                    <a href="mailto:info@kinetixstudio.cz">info@kinetixstudio.cz</a>
+                </div>
+                <div class="side-group">
+                    <strong>HYPE NA SÍTÍCH</strong>
+                    <a href="https://instagram.com/kinetix.studio" target="_blank">Instagram</a>
+                    <a href="https://tiktok.com/@kinetix.studio" target="_blank">TikTok</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 KINETIX STUDIO. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+
     <script>
-        // Logika pro Hamburger Menu
         const mobileMenu = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
+        const body = document.body;
 
+        // Hamburger Menu Toggle
         mobileMenu.addEventListener('click', () => {
             mobileMenu.classList.toggle('is-active');
             navList.classList.toggle('active');
+            
+            // Zamknout skrolování, pokud je menu otevřené
+            if (navList.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = 'auto';
+            }
         });
 
-        // Tvoje původní funkce pro karty
-        function toggleCard(card) {
-            const isActive = card.classList.contains('active');
-            document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-            if (!isActive) card.classList.add('active');
-        }
+        // Automatické zavření menu po kliknutí na odkaz
+        document.querySelectorAll('.nav-main-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('is-active');
+                navList.classList.remove('active');
+                body.style.overflow = 'auto';
+            });
+        });
+
+        // Lightbox Logika
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        document.querySelectorAll('.marquee-item img').forEach(image => {
+            image.addEventListener('click', () => {
+                lightbox.classList.add('active');
+                lightboxImg.src = image.src;
+                body.style.overflow = 'hidden'; // Zamknout skrolování při náhledu
+            });
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            // Zavřít jen při kliku mimo obrázek nebo na křížek
+            if (e.target !== lightboxImg) {
+                lightbox.classList.remove('active');
+                // Odemknout skrolování jen pokud není zároveň otevřené mobilní menu
+                if (!navList.classList.contains('active')) {
+                    body.style.overflow = 'auto';
+                }
+            }
+        });
     </script>
 </body>
 </html>

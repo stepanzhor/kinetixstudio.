@@ -1,0 +1,246 @@
+:root {
+    --orange: #FF5F1F;
+    --black: #050505;
+    --white: #FFFFFF;
+    --card-glass: rgba(255, 255, 255, 0.03);
+}
+
+/* --- ZÁKLADNÍ NASTAVENÍ --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--black);
+    background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%);
+    background-attachment: fixed;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Jemná textura (Grain) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.03;
+    z-index: 10;
+    pointer-events: none;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+/* --- NAVIGACE (ABSULUTNĚ STEJNÁ VŠUDE) --- */
+nav {
+    display: flex;
+    align-items: center;
+    height: 90px;
+    padding: 0 5%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(5, 5, 5, 0.85);
+    backdrop-filter: blur(15px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.4rem;
+    color: var(--white);
+    text-decoration: none;
+    flex: 1;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.logo span { color: var(--orange); }
+
+/* Podpora pro oba názvy tříd (index i kontakt) */
+.nav-main-links, .nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 80px; 
+    flex: 2;
+}
+
+.nav-main-links a, .nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+.nav-main-links a:hover, .nav-links a:hover, .active-link { 
+    color: var(--orange) !important; 
+}
+
+.nav-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    flex-shrink: 0;
+}
+
+.btn-cta {
+    background: var(--orange);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.8rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-cta:hover {
+    background: white;
+    color: black;
+    transform: translateY(-2px);
+}
+
+/* --- HERO SEKCE --- */
+.hero {
+    min-height: 80vh; /* Změněno z 100vh pro lepší flexibilitu */
+    display: flex;
+    align-items: center;
+    padding: 140px 8% 60px; /* Padding nahoře fixuje překrývání navigační lištou */
+}
+
+.hero h1 {
+    font-size: clamp(3.5rem, 9vw, 7.5rem);
+    line-height: 0.85;
+    margin: 20px 0;
+}
+
+.badge {
+    color: var(--orange);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    display: block;
+}
+
+/* --- PORTFOLIO MARQUEE --- */
+.marquee-section { padding: 120px 0 60px; overflow: hidden; }
+.container-title { padding: 0 8% 40px 8%; text-align: left; }
+.marquee { display: flex; width: 200%; }
+.marquee-content { display: flex; gap: 30px; animation: scroll 40s linear infinite; }
+.marquee-item { width: 500px; height: 320px; flex-shrink: 0; border-radius: 30px; overflow: hidden; background: #111; }
+.marquee-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s; }
+.marquee-item:hover img { transform: scale(1.1); }
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* --- SLUŽBY & ZIO CARDS --- */
+.section { padding: 80px 8%; }
+.section-title { font-size: 3.5rem; margin-bottom: 60px; }
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.zio-card {
+    background: var(--card-glass);
+    border-radius: 30px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    flex-direction: column;
+}
+
+.zio-card:hover {
+    transform: translateY(-15px);
+    border-color: var(--orange);
+    background: rgba(255, 95, 31, 0.05);
+}
+
+.zio-image { width: 100%; height: 250px; position: relative; overflow: hidden; }
+.zio-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
+.zio-card:hover .zio-image img { filter: grayscale(0%); transform: scale(1.1); }
+
+.zio-image .zio-num {
+    position: absolute; top: 20px; left: 20px;
+    background: var(--orange); color: white;
+    padding: 5px 15px; border-radius: 50px;
+    font-family: 'Archivo Black'; font-size: 0.9rem; z-index: 2;
+}
+
+.zio-content { padding: 35px; display: flex; flex-direction: column; flex-grow: 1; }
+.zio-content h3 { font-size: 1.6rem; margin-bottom: 15px; }
+.zio-content p { font-size: 0.95rem; opacity: 0.7; margin-bottom: 30px; flex-grow: 1; }
+
+.btn-zio-card {
+    text-decoration: none; color: var(--orange);
+    font-family: 'Archivo Black'; font-size: 0.9rem;
+    text-transform: uppercase; transition: 0.3s;
+    border-bottom: 2px solid transparent; width: fit-content;
+}
+
+.btn-zio-card:hover { color: white; border-bottom: 2px solid var(--orange); padding-left: 10px; }
+
+/* --- FOOTER & FORMULÁŘ --- */
+.footer-container { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 80px; }
+
+.kinetix-form-zio input, .kinetix-form-zio textarea {
+    width: 100%; background: transparent; border: none; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 15px 0; color: white; outline: none; margin-bottom: 30px; font-size: 1.1rem;
+}
+
+.kinetix-form-zio input:focus { border-bottom-color: var(--orange); }
+
+.btn-zio { background: transparent; color: var(--orange); border: none; font-family: 'Archivo Black'; font-size: 1.5rem; cursor: pointer; transition: 0.3s; }
+.btn-zio:hover { transform: translateX(10px); color: white; }
+
+.footer-sidebar { display: flex; flex-direction: column; gap: 40px; }
+.side-group strong { display: block; font-size: 0.7rem; color: var(--orange); letter-spacing: 2px; margin-bottom: 15px; }
+.side-group a { color: white; text-decoration: none; font-size: 1.2rem; display: block; opacity: 0.7; transition: 0.3s; margin-bottom: 10px; }
+.side-group a:hover { opacity: 1; color: var(--orange); padding-left: 8px; }
+
+/* --- BLOBS --- */
+.blob-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; filter: blur(100px); pointer-events: none; }
+.blob { position: absolute; border-radius: 50%; background: var(--orange); opacity: 0.15; }
+.blob-1 { width: 600px; height: 600px; top: -10%; left: -10%; }
+.blob-2 { width: 700px; height: 700px; bottom: -15%; right: -5%; }
+
+/* --- MOBIL --- */
+@media (max-width: 992px) {
+    .nav-main-links, .nav-links, .btn-cta { display: none; }
+    .footer-container { grid-template-columns: 1fr; }
+    .hero { padding-top: 120px; text-align: center; }
+}
+

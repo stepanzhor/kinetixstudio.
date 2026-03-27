@@ -4,118 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KONTAKT | KINETIX STUDIO</title>
-    
     <link rel="stylesheet" href="style.css">
-    
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
-
-    <div id="custom-cursor"></div>
 
     <div class="blob-container">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
     </div>
 
     <nav>
-        <a href="index.html" style="text-decoration: none;">
-            <div class="logo">KINETIX<span>STUDIO</span></div>
-        </a>
+        <div class="nav-container">
+            <a href="index.html" class="logo">KINETIX<span>STUDIO</span></a>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
 
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
+            <div class="nav-main-links" id="nav-list">
+                <a href="index.html">DOMŮ</a>
+                <a href="portfolio.html">PORTFOLIO</a>
+                <a href="sluzby.html">SLUŽBY</a>
+                <a href="kontakt.html">KONTAKT</a>
+            </div>
 
-        <div class="nav-links" id="nav-list">
-            <a href="index.html" class="nav-item">DOMŮ</a>
-            <a href="portfolio.html" class="nav-item">PORTFOLIO</a>
-            <a href="sluzby.html" class="nav-item">SLUŽBY</a>
-            <a href="kontakt.html" class="nav-item" style="color: var(--orange);">KONTAKT</a>
+            <div class="nav-right">
+                <a href="https://calendly.com/stepanzhor/30min" target="_blank" class="btn-cta">DOMLUVIT SCHŮZKU</a>
+            </div>
         </div>
     </nav>
 
-    <main id="content">
-        <section class="hero hero-left" style="height: auto; padding-top: clamp(120px, 15vh, 200px); padding-bottom: 50px;">
+    <main>
+        <section class="hero">
             <div class="hero-inner">
-                <span class="badge fade">START SPOLUPRÁCE</span>
-                <h1 class="reveal">KONTAKT</h1>
-                <p class="fade" style="max-width: 700px;">
-                    Máte vizi, kterou chcete realizovat? Ozvěte se KINETIX STUDIO. Vytvoříme pro váš klub vizuální identitu, která vyčnívá nad konkurencí.
-                </p>
+                <span class="badge">START SPOLUPRÁCE</span>
+                <h1>KONTAKT</h1>
+                <p>Máte vizi, kterou chcete realizovat? Ozvěte se KINETIX STUDIO. Vytvoříme pro váš klub vizuální identitu, která vyčnívá nad konkurencí.</p>
             </div>
         </section>
 
-        <section class="section">
-            <div class="footer-container" style="align-items: start; gap: 60px;">
-                
-                <div class="footer-main-text reveal" style="width: 100%;">
-                    <h2 class="section-title" style="text-align: left; margin-bottom: 30px; font-size: 1.8rem;">PROJEKTOVÁ POPTÁVKA</h2>
+        <section class="section" style="padding-top: 0;">
+            <div class="footer-container">
+                <div class="footer-main-text">
+                    <h2 class="section-title" style="font-size: 2rem; margin-bottom: 30px; text-align: left;">PROJEKTOVÁ POPTÁVKA</h2>
                     <form action="https://formspree.io/f/xojklyob" method="POST" class="kinetix-form-zio">
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 20px;">
-                            <input type="text" name="name" placeholder="Jméno a příjmení" required style="width: 100%;">
-                            <input type="email" name="email" placeholder="Emailová adresa" required style="width: 100%;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                            <input type="text" name="name" placeholder="Jméno a příjmení" required>
+                            <input type="email" name="email" placeholder="Emailová adresa" required>
                         </div>
-                        <input type="text" name="club" placeholder="Název klubu / organizace / sportovce" style="margin-bottom: 20px;">
-                        <textarea name="message" placeholder="Popište nám vaše požadavky (např. matchday set, nové logo, správa sítí)..." required style="min-height: 150px;"></textarea>
+                        <input type="text" name="club" placeholder="Název klubu / organizace / sportovce">
+                        <textarea name="message" placeholder="Popište nám vaše požadavky..." required style="min-height: 150px;"></textarea>
                         
-                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; margin-top: 10px;">
-                            <p style="font-size: 0.8rem; opacity: 0.6;">Strategický plán doručíme do 24 hodin.</p>
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; margin-top: 20px;">
+                            <p style="font-size: 0.85rem; opacity: 0.5;">Strategický plán doručíme do 24 hodin.</p>
                             <button type="submit" class="btn-zio">ODESLAT BRIEF →</button>
                         </div>
                     </form>
                 </div>
 
-                <div class="footer-sidebar reveal">
+                <div class="footer-sidebar">
                     <div class="side-group">
                         <strong>PŘÍMÝ KONTAKT</strong>
                         <a href="mailto:info@kinetixstudio.cz">info@kinetixstudio.cz</a>
                     </div>
                     <div class="side-group">
                         <strong>DIGITÁLNÍ IDENTITY</strong>
-                        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
-                            <a href="https://instagram.com/kinetix.studio" target="_blank">Instagram</a>
-                            <a href="https://tiktok.com/@kinetix.studio" target="_blank">TikTok</a>
-                        </div>
+                        <a href="https://instagram.com/kinetix.studio" target="_blank">Instagram</a>
+                        <a href="https://tiktok.com/@kinetix.studio" target="_blank">TikTok</a>
                     </div>
-
-                    <div class="glass-panel" style="text-align: left; padding: 25px; margin-top: 40px; border-radius: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,95,31,0.2);">
-                        <strong style="color: var(--orange); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;">Vizualizace zdarma</strong>
-                        <p style="font-size: 0.85rem; margin: 15px 0; line-height: 1.6; opacity: 0.9;">
-                            Zašlete nám své logo a mi pro váš tým připravíme **Concept Gameday set** zcela zdarma. Uvidíte změnu dřív, než se rozhodnete.
-                        </p>
-                        <ul style="list-style: none; font-size: 0.8rem; opacity: 0.7; padding: 0;">
-                            <li>• Návrh hlavní zápasové grafiky</li>
-                            <li>• Ukázka identity na sociálních sítích</li>
-                            <li>• Nezávazná konzultace</li>
-                        </ul>
+                    
+                    <div class="zio-item" style="padding: 30px; margin-top: 20px; background: rgba(255, 95, 31, 0.05); border-radius: 20px; border: 1px solid rgba(255, 95, 31, 0.1);">
+                        <span class="badge" style="font-size: 0.65rem;">BONUS</span>
+                        <h3 style="font-size: 1.2rem; margin: 10px 0;">VIZUALIZACE ZDARMA</h3>
+                        <p style="font-size: 0.85rem; margin-bottom: 0; line-height: 1.5; opacity: 0.7;">Zašlete nám své logo a my připravíme Concept Gameday set zcela zdarma.</p>
                     </div>
                 </div>
-
             </div>
         </section>
-
-        <div class="footer-bottom" style="margin-top: 80px; border-top: 1px solid rgba(255,255,255,0.05); padding: 30px 0;">
-            <p>&copy; 2026 KINETIX STUDIO. Všechna práva vyhrazena.</p>
-        </div>
     </main>
 
+    <footer class="footer-zio">
+        <div class="footer-bottom">
+            <p>&copy; 2026 KINETIX STUDIO. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+
     <script>
-        // Logika pro Hamburger Menu (nutné přidat na každou stránku)
         const mobileMenu = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
+        const body = document.body;
 
+        // Hamburger Logika
         if (mobileMenu) {
             mobileMenu.addEventListener('click', () => {
                 mobileMenu.classList.toggle('is-active');
                 navList.classList.toggle('active');
+                
+                if (navList.classList.contains('active')) {
+                    body.style.overflow = 'hidden';
+                } else {
+                    body.style.overflow = 'auto';
+                }
             });
         }
+
+        // Zavření menu po kliknutí na odkaz
+        document.querySelectorAll('.nav-main-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('is-active');
+                navList.classList.remove('active');
+                body.style.overflow = 'auto';
+            });
+        });
+
+        // GSAP Animace při načtení
+        gsap.from(".hero-inner", { opacity: 0, y: 30, duration: 1, ease: "power2.out" });
+        gsap.from(".footer-container", { opacity: 0, y: 50, duration: 1, delay: 0.3, ease: "power2.out" });
     </script>
 </body>
 </html>
