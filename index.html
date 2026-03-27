@@ -146,53 +146,30 @@
 
     <script>
         const mobileMenu = document.getElementById('mobile-menu');
-        const navList = document.getElementById('nav-list');
-        const body = document.body;
+const navList = document.getElementById('nav-list');
 
-        // Hamburger Menu Toggle
-        mobileMenu.addEventListener('click', () => {
-            mobileMenu.classList.toggle('is-active');
-            navList.classList.toggle('active');
-            
-            // Zamknout skrolování, pokud je menu otevřené
-            if (navList.classList.contains('active')) {
-                body.style.overflow = 'hidden';
-            } else {
-                body.style.overflow = 'auto';
-            }
-        });
+if (mobileMenu) {
+    mobileMenu.addEventListener('click', () => {
+        mobileMenu.classList.toggle('is-active');
+        navList.classList.toggle('active');
+        
+        // Zamezí skrolování stránky, když je menu otevřené
+        if (navList.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
 
-        // Automatické zavření menu po kliknutí na odkaz
-        document.querySelectorAll('.nav-main-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('is-active');
-                navList.classList.remove('active');
-                body.style.overflow = 'auto';
-            });
-        });
-
-        // Lightbox Logika
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-
-        document.querySelectorAll('.marquee-item img').forEach(image => {
-            image.addEventListener('click', () => {
-                lightbox.classList.add('active');
-                lightboxImg.src = image.src;
-                body.style.overflow = 'hidden'; // Zamknout skrolování při náhledu
-            });
-        });
-
-        lightbox.addEventListener('click', (e) => {
-            // Zavřít jen při kliku mimo obrázek nebo na křížek
-            if (e.target !== lightboxImg) {
-                lightbox.classList.remove('active');
-                // Odemknout skrolování jen pokud není zároveň otevřené mobilní menu
-                if (!navList.classList.contains('active')) {
-                    body.style.overflow = 'auto';
-                }
-            }
-        });
+// Zavřít menu po kliknutí na odkaz
+document.querySelectorAll('.nav-main-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.remove('is-active');
+        navList.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+});
     </script>
 </body>
 </html>
