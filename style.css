@@ -618,3 +618,70 @@ nav {
 .lightbox-trigger {
     cursor: zoom-in;
 }
+
+/* --- RESPONSIVNÍ NAVIGACE (OPRAVA) --- */
+
+/* Na desktopu schováme hamburger */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1100;
+}
+
+@media (max-width: 992px) {
+    /* Zobrazíme hamburger */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Schováme původní pravé tlačítko na liště */
+    .nav-right {
+        display: none;
+    }
+
+    /* Hlavní menu se změní na celoobrazovkový overlay */
+    .nav-main-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Schované vpravo */
+        width: 100%;
+        height: 100vh;
+        background: #0a0a0a;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+        z-index: 1050;
+        padding: 40px;
+    }
+
+    /* Když je menu aktivní */
+    .nav-main-links.active {
+        right: 0;
+    }
+
+    .nav-main-links a {
+        font-size: 2rem;
+        font-family: 'Archivo Black', sans-serif;
+        opacity: 1;
+    }
+
+    /* Speciální styl pro CTA tlačítko uvnitř mobilního menu */
+    .nav-main-links .btn-cta-mobile {
+        display: inline-block !important;
+        margin-top: 20px;
+        background: #ff5f1f;
+        padding: 15px 35px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+}
+
+/* Na desktopu schováme mobilní verzi tlačítka */
+.btn-cta-mobile {
+    display: none;
+}
