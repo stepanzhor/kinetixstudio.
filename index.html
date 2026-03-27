@@ -32,7 +32,6 @@
         </div>
 
         <div class="nav-main-links" id="nav-list">
-            <a href="index.html">DOMŮ</a>
             <a href="portfolio.html">PORTFOLIO</a>
             <a href="sluzby.html">SLUŽBY</a>
             <a href="kontakt.html">KONTAKT</a>
@@ -79,7 +78,7 @@
             <div class="services-grid">
                 <div class="zio-card">
                     <div class="zio-image">
-                        <img src="img/service1.jpg" alt="Identity Design">
+                        <img src="img/IMG_3071.JPG" alt="Identity Design">
                     </div>
                     <div class="zio-content">
                         <h3>IDENTITY DESIGN</h3>
@@ -90,7 +89,7 @@
 
                 <div class="zio-card">
                     <div class="zio-image">
-                        <img src="img/service2.jpg" alt="Gameday Graphics">
+                        <img src="img/IMG_3074.JPG" alt="Gameday Graphics">
                     </div>
                     <div class="zio-content">
                         <h3>GAMEDAY GRAPHICS</h3>
@@ -101,7 +100,7 @@
 
                 <div class="zio-card">
                     <div class="zio-image">
-                        <img src="img/service3.jpg" alt="Kinetic Motion">
+                        <img src="img/sanjeev-nagaraj-u4bvBOOpZB4-unsplash.jpg" alt="Kinetic Motion">
                     </div>
                     <div class="zio-content">
                         <h3>KINETIC MOTION</h3>
@@ -146,30 +145,27 @@
 
     <script>
         const mobileMenu = document.getElementById('mobile-menu');
-const navList = document.getElementById('nav-list');
+        const navList = document.getElementById('nav-list');
 
-if (mobileMenu) {
-    mobileMenu.addEventListener('click', () => {
-        mobileMenu.classList.toggle('is-active');
-        navList.classList.toggle('active');
-        
-        // Zamezí skrolování stránky, když je menu otevřené
-        if (navList.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'auto';
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', () => {
+                mobileMenu.classList.toggle('is-active');
+                navList.classList.toggle('active');
+                if (navList.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = 'auto';
+                }
+            });
         }
-    });
-}
 
-// Zavřít menu po kliknutí na odkaz
-document.querySelectorAll('.nav-main-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.remove('is-active');
-        navList.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
-});
+        document.querySelectorAll('.nav-main-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('is-active');
+                navList.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
     </script>
 </body>
 </html>

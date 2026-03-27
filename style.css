@@ -790,3 +790,95 @@ nav {
         box-shadow: 0 10px 30px rgba(255, 95, 31, 0.3);
     }
 }
+
+/* ÚPRAVA KARET NA HLAVNÍ STRÁNCE */
+.service-card {
+    position: relative;
+    overflow: hidden; /* Aby fotka nepřečuhovala přes zaoblené rohy */
+    background: #0a0a0a; /* Základní černá */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Text bude dole */
+    z-index: 1;
+    transition: 0.4s ease;
+}
+
+/* VRSTVA PRO FOTKU */
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--bg-img); /* Fotku si vezme z HTML */
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) brightness(0.4); /* Černobílá a ztmavená */
+    z-index: -2;
+    transition: 0.5s ease;
+}
+
+/* PŘECHOD (GRADIENT) DO ČERNÉ */
+.service-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Přechod z průhledné (nahoře) do úplně černé (dole u textu) */
+    background: linear-gradient(to bottom, 
+                rgba(10, 10, 10, 0) 0%, 
+                rgba(10, 10, 10, 0.8) 50%, 
+                rgba(10, 10, 10, 1) 100%);
+    z-index: -1;
+}
+
+/* EFEKT PŘI NAJETÍ MYŠÍ */
+.service-card:hover {
+    border-color: #ff5f1f;
+    transform: translateY(-5px);
+}
+
+.service-card:hover::before {
+    filter: grayscale(100%) brightness(0.6); /* Fotka se trochu rozsvítí */
+    transform: scale(1.05); /* Jemný zoom */
+}
+
+/* Aby byla fotka barevná a měla fade */
+.zio-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.zio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7); /* Fotka je barevná, jen lehce ztmavená pro čitelnost */
+    display: block;
+}
+
+/* Ten slibovaný fade (přechod) pod textem */
+.zio-image::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70%; /* Gradient začíná od půlky fotky dolů */
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 0) 0%, rgba(10, 10, 10, 1) 100%);
+    z-index: 1;
+}
+
+/* Pokud máš text v zio-content, ujisti se, že je nad fadem */
+.zio-content {
+    position: relative;
+    z-index: 2;
+    margin-top: -60px; /* Toto krásně vytáhne text nad ten černý fade fotky */
+}
